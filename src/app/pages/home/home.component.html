@@ -1,6 +1,6 @@
-<div class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-gray-900 text-white flex flex-col items-center justify-center px-4 py-8">
+<div class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-gray-900 text-white flex flex-col items-center px-4 py-8">
   <!-- Hero Section -->
-  <section class="w-full max-w-4xl text-center mb-16">
+  <section class="w-full max-w-4xl text-center mb-10">
     <div class="mb-8 flex justify-center">
       <div class="relative group">
         <img src="adem_photo.png" alt="Profile" class="mx-auto w-48 h-48 md:w-64 md:h-64 rounded-full border-8 border-purple-500 shadow-2xl transition-transform duration-300 group-hover:scale-105 group-hover:shadow-purple-500/40" />
@@ -9,69 +9,168 @@
     </div>
     <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">Hi, I'm <span class="text-purple-400">Adem Sansa</span></h1>
     <p class="text-lg md:text-2xl text-gray-300 mb-4">Creative Developer &amp; Tech Enthusiast</p>
-    <p class="text-md md:text-lg text-gray-400">Passionate about building beautiful, performant, and accessible web,Desktop and Mobile applications.</p>
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="#experiences" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition">My Experiences</a>
-      <a href="#parcours" class="px-6 py-2 bg-gray-800 hover:bg-gray-700 rounded-full font-semibold transition">My Journey</a>
-    </div>
+    <p class="text-md md:text-lg text-gray-400">Passionate about building beautiful, performant, and accessible web, Desktop and Mobile applications.</p>
   </section>
 
-  <!-- Experiences Section -->
-  <section id="experiences" class="w-full max-w-3xl mb-16">
-    <h2 class="text-3xl font-bold mb-8 text-purple-300 text-center">Experiences</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition">
-        <h3 class="text-xl font-semibold mb-2">Frontend Developer</h3>
-        <p class="text-gray-400 mb-2">Awesome Company</p>
-        <p class="text-gray-300 text-sm">2022 - Present</p>
-        <ul class="list-disc list-inside text-gray-400 mt-2 text-left">
-          <li>Built modern, responsive UIs with Angular &amp; Tailwind</li>
-          <li>Collaborated with designers and backend teams</li>
-        </ul>
-      </div>
-      <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition">
-        <h3 class="text-xl font-semibold mb-2">UI/UX Designer</h3>
-        <p class="text-gray-400 mb-2">Creative Studio</p>
-        <p class="text-gray-300 text-sm">2020 - 2022</p>
-        <ul class="list-disc list-inside text-gray-400 mt-2 text-left">
-          <li>Designed user-centric interfaces for web &amp; mobile</li>
-          <li>Conducted user research and usability testing</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <!-- Section Switcher -->
+  <div class="flex justify-center gap-4 mb-12">
+    <button (click)="selectSection('academic')"
+      [ngClass]="selectedSection === 'academic' ? 'bg-purple-600 text-white shadow-lg scale-105' : 'bg-gray-800 text-gray-300'"
+      class="px-6 py-2 rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      Academic Journey
+    </button>
+    <button (click)="selectSection('internships')"
+      [ngClass]="selectedSection === 'internships' ? 'bg-purple-600 text-white shadow-lg scale-105' : 'bg-gray-800 text-gray-300'"
+      class="px-6 py-2 rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      Internships
+    </button>
+    <button (click)="selectSection('other')"
+      [ngClass]="selectedSection === 'other' ? 'bg-purple-600 text-white shadow-lg scale-105' : 'bg-gray-800 text-gray-300'"
+      class="px-6 py-2 rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      Other Experiences
+    </button>
+  </div>
 
-  <!-- Parcours (Journey) Section -->
-  <section id="parcours" class="w-full max-w-3xl mb-16">
-    <h2 class="text-3xl font-bold mb-8 text-purple-300 text-center">My Journey</h2>
-    <div class="relative pl-8">
-      <div class="absolute left-2 top-0 h-full border-l-4 border-purple-500"></div>
-      <div class="mb-8 flex items-center">
-        <div class="w-4 h-4 bg-purple-500 rounded-full mr-4"></div>
-        <div>
-          <h4 class="font-semibold text-lg">2024</h4>
-          <p class="text-gray-400">Started as Frontend Developer at Awesome Company</p>
+  <!-- Dynamic Section Content -->
+  <div class="w-full max-w-3xl min-h-[250px] flex flex-col items-center justify-center relative">
+    <!-- Academic Journey -->
+    <div *ngIf="selectedSection === 'academic'" class="animate-fade-in w-full">
+      <h2 class="text-3xl font-bold mb-8 text-purple-300 text-center">Academic Journey</h2>
+      <div class="relative pl-8">
+        <div class="absolute left-2 top-0 h-full border-l-4 border-purple-500"></div>
+        <!-- 2025: ISET Rades -->
+        <div class="mb-10 flex items-start group">
+          <div class="w-8 h-8 flex items-center justify-center bg-purple-600 text-white rounded-full shadow-lg mr-4 text-xl">🎓</div>
+          <div>
+            <h4 class="font-semibold text-lg">2025</h4>
+            <p class="text-gray-300 font-medium">ISET Rades Institute</p>
+            <p class="text-gray-400">Licence in Information Technology</p>
+            <p class="text-gray-400 text-sm">Specialty: Information Systems Development</p>
+            <p class="text-gray-500 text-xs">Graduated: June 2025</p>
+          </div>
         </div>
-      </div>
-      <div class="mb-8 flex items-center">
-        <div class="w-4 h-4 bg-purple-500 rounded-full mr-4"></div>
-        <div>
-          <h4 class="font-semibold text-lg">2022</h4>
-          <p class="text-gray-400">Graduated with a degree in Computer Science</p>
-        </div>
-      </div>
-      <div class="mb-8 flex items-center">
-        <div class="w-4 h-4 bg-purple-500 rounded-full mr-4"></div>
-        <div>
-          <h4 class="font-semibold text-lg">2020</h4>
-          <p class="text-gray-400">Internship at Creative Studio</p>
+        <!-- 2022: Baccalaureat -->
+        <div class="mb-10 flex items-start group">
+          <div class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-lg mr-4 text-xl">🏫</div>
+          <div>
+            <h4 class="font-semibold text-lg">2022</h4>
+            <p class="text-gray-300 font-medium">Lycée Farhat Hached Rades</p>
+            <p class="text-gray-400">Baccalaureat in Computer Science</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    <!-- Internships -->
+    <div *ngIf="selectedSection === 'internships'" class="animate-fade-in w-full">
+      <h2 class="text-3xl font-bold mb-8 text-purple-300 text-center">Internships</h2>
+      <div class="relative pl-8">
+        <div class="absolute left-2 top-0 h-full border-l-4 border-purple-500"></div>
+        <!-- 2025/02: TIC Geek -->
+        <div class="mb-10 flex items-start group">
+          <div class="w-8 h-8 flex items-center justify-center bg-green-600 text-white rounded-full shadow-lg mr-4 text-xl">📱</div>
+          <div>
+            <h4 class="font-semibold text-lg">Feb 2025</h4>
+            <p class="text-gray-300 font-medium">End of Studies Internship (TIC Geek)</p>
+            <ul class="list-disc list-inside text-gray-400 mt-2">
+              <li>Developed a multiplatform application for after-sales service management for Magasin Général.</li>
+              <li>Worked collaboratively with a teammate  throughout the project.</li>
+              <li>Gained significant experience with Angular and Express for full-stack development.</li>
+              <li>Internship duration: 4 months.</li>
+              <li>Successfully completed the project and delivered a functional application.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 2024/02: PeakSource Group -->
+        <div class="mb-10 flex items-start group">
+          <div class="w-8 h-8 flex items-center justify-center bg-purple-600 text-white rounded-full shadow-lg mr-4 text-xl">🕹️</div>
+          <div>
+            <h4 class="font-semibold text-lg">Feb 2024</h4>
+            <p class="text-gray-300 font-medium">Advanced Internship (PeakSource Group)</p>
+            <ul class="list-disc list-inside text-gray-400 mt-2">
+              <li>Designed a project dedicated to video game development.</li>
+              <li>Studied and learned the basics of video game development and mastered the necessary tools.</li>
+              <li>Developed a personal video game model with Unity and C# (Rush Race) and created a concrete example.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 2023/02: Tech Auto Rades -->
+        <div class="mb-10 flex items-start group">
+          <div class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-lg mr-4 text-xl">💻</div>
+          <div>
+            <h4 class="font-semibold text-lg">Feb 2023</h4>
+            <p class="text-gray-300 font-medium">Introductory Internship (Tech Auto Rades)</p>
+            <ul class="list-disc list-inside text-gray-400 mt-2">
+              <li>Technical assistant in IT systems.</li>
+              <li>Implemented stock management for spare parts.</li>
+              <li>Billing and repair orders.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Other Experiences -->
+    <div *ngIf="selectedSection === 'other'" class="animate-fade-in w-full">
+      <h2 class="text-3xl font-bold mb-8 text-purple-300 text-center">Other Experiences</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Ningen Customer Service Agent -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition flex flex-col">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-2">💼</span>
+            <h3 class="text-xl font-semibold">Customer Service Agent</h3>
+          </div>
+          <p class="text-gray-400 mb-1">Ningen</p>
+          <p class="text-gray-300 text-sm mb-2">July 2024 - November 2024</p>
+          <ul class="list-disc list-inside text-gray-400 text-left mb-2">
+            <li>Worked as a customer service agent for 4 months.</li>
+            <li>Gained significant experience in back office operations.</li>
+            <li>Developed skills and insights in entrepreneurship.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Me Button -->
+  <div class="w-full max-w-3xl flex justify-center mt-16">
+    <button (click)="openContactModal()" class="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-bold shadow-lg transition-all duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-purple-400">
+      Contact Me
+    </button>
+  </div>
+
+  <!-- Contact Modal Popup -->
+  <div *ngIf="showContactModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 animate-fade-in">
+    <div class="bg-gray-900 rounded-2xl shadow-2xl p-8 w-full max-w-md relative animate-fade-in-up">
+      <button (click)="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-purple-400 text-2xl font-bold focus:outline-none">&times;</button>
+      <h2 class="text-2xl font-bold mb-6 text-purple-300 text-center">Contact Me</h2>
+      <form class="flex flex-col gap-4">
+        <input type="text" placeholder="Your Name" class="px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-400" required />
+        <input type="email" placeholder="Your Email" class="px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-400" required />
+        <textarea placeholder="Your Message" rows="4" class="px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 resize-none" required></textarea>
+        <button type="submit" class="mt-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-bold text-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">Send</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="w-full text-center text-gray-500 mt-auto pt-8">
-    &copy; {{ currentYear }} Your Name. All rights reserved.
+    &copy; {{ currentYear }} Adem Sansa. All rights reserved.
   </footer>
 </div>
+
+<!-- Tailwind fade-in animation -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
